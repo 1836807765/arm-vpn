@@ -1,0 +1,64 @@
+minilzo/t-minilzo.o: minilzo/minilzo.c config.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/limits.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/syslimits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/limits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix1_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/local_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/limits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix2_lim.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h \
+  minilzo/minilzo.h include/lzo/lzoconf.h include/lzo/lzodefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/string.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string2.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdlib.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/assert.h
+
+config.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/limits.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/syslimits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/limits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix1_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/local_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/limits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix2_lim.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h:
+
+minilzo/minilzo.h:
+
+include/lzo/lzoconf.h:
+
+include/lzo/lzodefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/string.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string2.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdlib.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/assert.h:

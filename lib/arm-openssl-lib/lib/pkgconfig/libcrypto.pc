@@ -1,0 +1,12 @@
+prefix=/root/WORK/dedaVPN/arm-vpn/openssl-OpenSSL_1_0_1r/arm-openssl-lib
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL-libcrypto
+Description: OpenSSL cryptography library
+Version: 1.0.1r
+Requires: 
+Libs: -L${libdir} -lcrypto
+Libs.private: 
+Cflags: -I${includedir} 

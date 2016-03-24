@@ -1,0 +1,114 @@
+minilzo/t-testmini.o: minilzo/testmini.c \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdlib.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/types.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/time.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/endian.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/endian.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/select.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/select.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/time.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/sysmacros.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/pthreadtypes.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/alloca.h \
+  minilzo/minilzo.h include/lzo/lzoconf.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/limits.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/syslimits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/limits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix1_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/local_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/limits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix2_lim.h \
+  include/lzo/lzodefs.h
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdlib.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/types.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/time.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/endian.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/endian.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/select.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/select.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/time.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/sysmacros.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/pthreadtypes.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/alloca.h:
+
+minilzo/minilzo.h:
+
+include/lzo/lzoconf.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/limits.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/syslimits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/limits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix1_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/local_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/limits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix2_lim.h:
+
+include/lzo/lzodefs.h:

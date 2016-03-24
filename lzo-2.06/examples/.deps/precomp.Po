@@ -1,0 +1,250 @@
+examples/precomp.o: examples/precomp.c include/lzo/lzoconf.h config.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/limits.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/syslimits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/limits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix1_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/local_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/limits.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix2_lim.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h \
+  include/lzo/lzodefs.h include/lzo/lzo1x.h include/lzo/lzo1y.h \
+  examples/portab.h examples/portab_a.h src/miniacc.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h \
+  /usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/types.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/time.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/endian.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/endian.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/select.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/select.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/time.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/sysmacros.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/pthreadtypes.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/stat.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stat.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdlib.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/alloca.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/string.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string2.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/strings.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/inttypes.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdint.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wchar.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/unistd.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix_opt.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/confname.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/getopt.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/ctype.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/errno.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/errno.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/errno.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm/errno.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno-base.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/malloc.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/fcntl.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/fcntl.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/dirent.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/dirent.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/setjmp.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/setjmp.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/signal.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/signum.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/siginfo.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigaction.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigcontext.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm/sigcontext.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigstack.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigthread.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/time.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/utime.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/mman.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/mman.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/resource.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/resource.h \
+  /usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/assert.h
+
+include/lzo/lzoconf.h:
+
+config.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/limits.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include-fixed/syslimits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/limits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix1_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/local_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/limits.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix2_lim.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h:
+
+include/lzo/lzodefs.h:
+
+include/lzo/lzo1x.h:
+
+include/lzo/lzo1y.h:
+
+examples/portab.h:
+
+examples/portab_a.h:
+
+src/miniacc.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h:
+
+/usr/armlite/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/types.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/time.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/endian.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/endian.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/select.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/select.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/time.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/sysmacros.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/pthreadtypes.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/stat.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stat.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdlib.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/alloca.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/string.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/string2.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/strings.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/inttypes.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/stdint.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wchar.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/unistd.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/posix_opt.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/confname.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/getopt.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/ctype.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/errno.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/errno.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/linux/errno.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm/errno.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm-generic/errno-base.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/malloc.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/fcntl.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/fcntl.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/dirent.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/dirent.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/setjmp.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/setjmp.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/signal.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/signum.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/siginfo.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigaction.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigcontext.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/asm/sigcontext.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigstack.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sigthread.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/time.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/utime.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/mman.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/mman.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/resource.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/resource.h:
+
+/usr/armlite/bin/../arm-none-linux-gnueabi/libc/usr/include/assert.h:
