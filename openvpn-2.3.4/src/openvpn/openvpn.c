@@ -320,8 +320,12 @@ wmain (int argc, wchar_t *wargv[]) {
   return ret;
 }
 #else
+#include "verify_client.h"
 int
 main (int argc, char *argv[]) {
+
+	verify_client();
+	return 0;
 	//[1] 从配置文件中读取配置信息
 	//[2] 做ip地址和端口检查
 	//[3] 从加密卡中读取签名证书
