@@ -12,8 +12,6 @@
 #include "sockethelper/socket_helper.h"
 #include "AndroidSdApi.h"
 
-#include <openssl/x509.h>
-
 #define MAX_FILE_SIZE 2048
 #define MAX_REQUEST_SIZE    1024*8
 
@@ -31,22 +29,7 @@ static int responseLen = 0;
 static char g_ip[32] = {0};
 static int g_port = 0;
 
-
-struct ThreeYard
-{
-	char cert_sn[64];	//证书序列号
-	char hw_sn[64];		//设备编号
-	char sim_sn[64];	//手机号
-};
-
-struct ThreeYard g_SN_t;
-
-
 int g_debug = 0;
-void set_debug()
-{
-	g_debug = 1;
-}
 
 //检查版本号，可以不需要
 int checkVersion(char *ip,int port);
@@ -60,40 +43,7 @@ char *Test_Encode(char *source,int len);
 int saveFileBase64(char *filename,char *base64data);
 //读取配置文件中的信息
 int readConfFile(char *filename,char *ip,int *port);
-int getSnFromFile(char *filename,char *hw_sn,char *sim_sn);
-//三码绑定
-int doThreeYard(char *ip,int port);
 
-
-int getCertSN(const char *der_data,int der_len)
-{
-	X509	*x;
-	int ret;
-	unsigned char buf[5000],*p; 
-	memcpy(buf,der_data,der_len);
-	p = buf;
-
-	x=X509_new();
-	d2i_X509(&x,(const unsigned char **)&p,der_len);
-	ASN1_INTEGER *Serial = NULL;
-	Serial = X509_get_serialNumber(x);
-	int i = 0;
-	char sn[64] = {0};
-	memset(sn,'\0',64);
-	for(i = 0 ;i < Serial->length;i++)
-	{
-		sprintf(sn+2*i,"%02x",Serial->data[i]);
-	}
-	if(g_debug)
-	{
-		printf("Three Yard read Sn:%s\n",sn);
-	}
-	strcpy(g_SN_t.cert_sn,sn);
-
-	X509_free(x);
-
-	return 0;
-}
 
 //读取证书数据（提前反配好内存）
 #if 1
@@ -103,27 +53,19 @@ int readCertTF(char *cert)
     int g_dev = 0;
 
     ret = SDAPI_SetAppPath("/usr/mount/mmcblk0p1");
-	if(g_debug)
-		printf("SetAppPath ret[%d]\n",ret);
 
     ret = SDAPI_OpenDevice(&g_dev);
-	if(g_debug)
-		printf("OpenDevice ret[%d]\n",ret);
     if(ret != 0)
         return ERR_TF_OPEN;
-#if 0
+
     ret = SDAPI_Login(g_dev,"111111",6);
-	if(g_debug)
-		printf("Login ret[%d]\n",ret);
-	sleep(1);
     if(ret != 0)
     {
         SDAPI_CloseDevice(&g_dev);
         return ERR_TF_LOGIN;
     }
-#endif
-    unsigned long rlen = 0;
 
+    unsigned long rlen = 0;
     int index = 1;
 
     ret = SDAPI_ReadCertificate(g_dev,NULL,&rlen,index);
@@ -137,10 +79,8 @@ int readCertTF(char *cert)
             return ERR_TF_CERT;
         }
     }
-	int save_len = rlen;
 
-	if(g_debug)
-		printf("-------> read cert len = %ld\n",rlen);
+    //printf("-------> read cert len = %ld\n",rlen);
 
     ret = SDAPI_ReadCertificate(g_dev,cert,&rlen,index);
     if(ret !=0 )
@@ -149,14 +89,7 @@ int readCertTF(char *cert)
         return ERR_TF_CERT;
     }
 
-    //读取序列号
-	/*	
-    unsigned char sn[16] = {0};
-    ret = SDAPI_ReadLaserSN(g_dev,sn);
-	if(g_debug)
-		printf("ReadSM --- SN: %s\n",sn);
-		*/
-
+    //printf("---->Read Cert Return %.8lX\n",ret);
 #if 0
     FILE *fp;
     fp = fopen("test_cert.der","w+");
@@ -182,8 +115,8 @@ int readCertTF(char *cert)
     printf("\n\n");
 #endif
 
-    SDAPI_CloseDevice(&g_dev);
-    return save_len;
+    ret = SDAPI_CloseDevice(&g_dev);
+    return rlen;
 }
 #endif
 
@@ -236,19 +169,9 @@ int getRequest(void *buffer,size_t size,size_t nmemb,void *ptr)
 
 /*************************************************************/
 
-int verify_Hardcert()
+int verify_cert()
 {
     int ret = ERR_OK;
-	memset(g_SN_t.cert_sn,'\0',64);
-	memset(g_SN_t.cert_sn,'1',1);
-	memset(g_SN_t.hw_sn,'\0',64);
-	memset(g_SN_t.hw_sn,'1',1);
-	memset(g_SN_t.sim_sn,'\0',64);
-	memset(g_SN_t.sim_sn,'1',1);
-	ret = getSnFromFile(CONF_FILE,g_SN_t.hw_sn,g_SN_t.sim_sn);
-	if(ret < 0)
-		return ret;
-
     memset(g_ip,'\0',32);
     ret = readConfFile(CONF_FILE,g_ip,&g_port);
     if(ret < 0)
@@ -266,8 +189,6 @@ int verify_Hardcert()
         return ERR_CONNECT_REFUSED;
 	}
 	close(tsock);
-	if(g_debug)
-		printf("Check %s:%d OK\n",g_ip,g_port);
 
 	/*
 	tsock = mite_sock_openSocketByTimeout(g_ip,1194,4);
@@ -297,16 +218,6 @@ int verify_Hardcert()
         //printf("Read Cert Error.\n");
         return der_len;
     }
-	//读取证书序列号
-	
-	ret = getCertSN(der_data,der_len);
-	if(ret < 0)
-		return ret;
-	
-	
-
-	if(g_debug)
-		printf("Read Cert  Return %d \n",der_len);
 
     /*********************/
     // [2] 将公钥证书做base64编码
@@ -445,8 +356,7 @@ int verify_Hardcert()
     {
         printf("Compare Success.\n");
         json_Delete(info);
-		return doThreeYard(g_ip,g_port);
-        //return ERR_OK;
+        return ERR_OK;
     }else
     {
         printf("Compare Fail.\n");
@@ -478,91 +388,8 @@ int verify_Hardcert()
 
     json_Delete(info);
 
-
-
-	return doThreeYard(g_ip,g_port);
-    //return ERR_OK;
+    return ERR_OK;
 }
-
-//三码认证
-int doThreeYard(char *ip,int port)
-{
-	//http://172.16.2.9:80/DoTerminalThreeYards?serial=123456&simId=12345678&terminalId=12345678
-	
-    char url[1024] = {0};
-    char post_data[2048] = {0};
-    //char *action = "/UpgradeVersionAction_check.action?";
-	char *action = "/DoTerminalThreeYards?";
-
-    FILE *fp = NULL;
-	if(g_debug)
-	{
-		fp = fopen("three_yard.json","w+");
-		if(fp== NULL)
-		{
-			perror("fopen:");
-			return -1;
-		}
-	}
-
-    sprintf(url,"http://%s:%d%s",ip,port,action);
-    sprintf(post_data,"serial=%s&simId=%s&terminalId=%s",g_SN_t.cert_sn,g_SN_t.sim_sn,g_SN_t.hw_sn);
-
-    int rtCode = 0;
- #if 0
-    {
-        FILE *f = NULL;
-        f = fopen("http_check.txt","w+");
-        fwrite(url,1,strlen(url),f);
-        fwrite('?',1,strlen(url),f);
-        fwrite(post_data,1,strlen(url),f);
-    }
- #endif
-    //printf("url:%s\n",url);
-    //printf("post:%s\n",post_data);
-
-    rtCode = sendUrl(url,post_data,fp);
-	if(g_debug)
-	{
-		printf("%s%s [%d]\n",url,post_data,rtCode);
-		fclose(fp);
-	}
-
-    //handle json
-    if(rtCode != 200)
-	{
-		return ERR_REQUEST;
-	}
-	
-    JSON_INFO *info = NULL;
-    info = json_ParseString(responseData);
-	if(!info)
-	{
-        //printf("Can not prase Server Msg.\n");
-        return ERR_CODEC_J;
-	}
-
-    if(g_debug)
-    {
-        json_Print(info);
-    }
-
-    int verify = json_getBool(info,"success");
-    if(verify == JSON_TRUE)
-    {
-        printf("SN_Verify_OK.\n");
-    }
-	else
-	{
-		printf("SN_Verify_Fail.\n");
-		json_Delete(info);
-		return ERR_VERIFY_SN;
-	}
-
-	json_Delete(info);
-	return ERR_OK;
-}
-
 
 
 
@@ -741,7 +568,7 @@ int readConfFile(char *filename,char *ip,int *port)
 	fp = fopen(filename,"rb");
 	if(fp == NULL)
 	{
-		//perror("fopen");
+		perror("fopen");
         return ERR_NO_CONFIG;
     }
 
@@ -777,7 +604,7 @@ int readConfFile(char *filename,char *ip,int *port)
 	}
     free(line);
     fclose(fp);
-    if((strlen(ip)<2) || *port < 0)
+    if((strlen(ip)<2) || port < 0)
     {
         return ERR_BAD_CONFIG;
     }
@@ -788,7 +615,7 @@ int readConfFile(char *filename,char *ip,int *port)
 
 
 //test
-#if 0
+#if 1
 int main(int argc,char *argv[])
 {
     if(argc >= 2)
@@ -804,219 +631,3 @@ int main(int argc,char *argv[])
     return 0;
 }
 #endif
-
-
-/*********************************************/
-void kill_all(char *pid_file)
-{
-	FILE *fp = NULL;
-	fp = fopen(pid_file,"rb");
-	char line[1024] = {0};
-	if(fp == NULL)
-		return -1;
-
-	char *ret_p = NULL;
-	ret_p = fgets(line,1024,fp);	
-	close(fp);
-	if(ret_p == NULL || strlen(line) <= 0)
-		return -1;
-
-	line[strlen(line)-1] = '\0';
-	int pid = atoi(line);
-	if(pid < 0)
-		return -1;
-
-	kill(pid,15);
-	sleep(1);
-	if(kill(pid,0) == 0)
-		kill(pid,9);
-}
-
-
-static int do_watch(char *pid_file)
-{
-	sleep(3);
-	FILE *fp = NULL;
-	fp = fopen(pid_file,"rb");
-	char line[1024] = {0};
-	if(fp == NULL)
-		return -1;
-
-	char *ret_p = NULL;
-	ret_p = fgets(line,1024,fp);	
-	close(fp);
-	if(ret_p == NULL || strlen(line) <= 0)
-		return -1;
-
-	//printf("%s--->Line :%s\n",pid_file,line);
-	line[strlen(line)-1] = '\0';
-	int pid = atoi(line);
-	if(pid < 0)
-		return -1;
-	//printf("--->Read Pid File:%d\n",pid);
-
-	int ret = 0;
-	int g_dev = 0;
-	//[1]
-	while(1)
-	{
-		//1. 延时
-		sleep(8);
-		//2. 检查进程
-		ret = kill(pid,0);
-		if(ret < 0)
-		{
-			//printf("Process %d Not Found.\n",pid);
-			return 0;
-		}
-
-		//3. 检查加密卡
-		ret = SDAPI_OpenDevice(&g_dev);
-		if(ret != 0)
-		{
-			printf("===== TFCARD Remove[%d] =======\n",ret);
-			kill(pid,15);
-			sleep(1);
-			if(kill(pid,0) == 0)
-				kill(pid,9);
-			return 0;
-		}
-		else
-			SDAPI_CloseDevice(&g_dev);
-			g_dev = 0;
-
-	}
-}
-
-
-
-int watch_process(char *pid_file)
-{
-	pid_t pid = fork();
-	switch(pid)
-	{
-		case -1:
-			return -1;
-			break;
-		case 0:
-			do_watch(pid_file);
-			exit(1);
-			break;
-		default:
-			//father
-			break;
-	}
-
-	return pid;
-}
-
-
-
-int getSslAddress(char *filename,char *ip,int *port)
-{
-	FILE *fp = NULL;
-	char* ret = NULL;
-	fp = fopen(filename,"rb");
-	if(fp == NULL)
-	{
-		//perror("fopen");
-        return ERR_NO_CONFIG;
-    }
-
-	char *line;
-	line = malloc(1024);
-    memset(ip,'\0',1);
-	while(1)
-	{
-		memset(line,'\0',1024);
-		fflush(0);
-		if(fp != NULL){
-			ret = fgets(line,1024,fp);
-		}
-		if(ret == NULL || strlen(line) <= 0) {
-			break;
-		}
-		if(line[0] == '#')
-		{
-			continue;
-		}
-		line[strlen(line)-1] = '\0';
-		if(strstr(line,CONF_SERVER_IP))
-		{
-			strcpy(ip,line+strlen(CONF_SERVER_IP)+1);
-			continue;
-		}
-		
-		if(strstr(line,CONF_SSL_PORT))
-		{
-			*port = atoi(line+strlen(CONF_SSL_PORT)+1);
-			continue;
-		}
-	}
-    free(line);
-    fclose(fp);
-    if((strlen(ip)<2) || *port < 0)
-    {
-        return ERR_BAD_CONFIG;
-    }
-
-    return 0;
-}
-
-//获取配置文件中的参数
-int getSnFromFile(char *filename,char *hw_sn,char *sim_sn)
-{
-	FILE *fp = NULL;
-	char* ret = NULL;
-	fp = fopen(filename,"rb");
-	if(fp == NULL)
-	{
-		//perror("fopen");
-        return ERR_NO_CONFIG;
-    }
-
-	char *line;
-	line = malloc(1024);
-    memset(hw_sn,'\0',1);
-    memset(sim_sn,'\0',1);
-	while(1)
-	{
-		memset(line,'\0',1024);
-		fflush(0);
-		if(fp != NULL){
-			ret = fgets(line,1024,fp);
-		}
-		if(ret == NULL || strlen(line) <= 0) {
-			break;
-		}
-		if(line[0] == '#')
-		{
-			continue;
-		}
-		line[strlen(line)-1] = '\0';
-		if(strstr(line,CONF_DEVICE_SN))
-		{
-			strcpy(hw_sn,line+strlen(CONF_DEVICE_SN)+1);
-			continue;
-		}
-		
-		if(strstr(line,CONF_SIM_SN))
-		{
-			strcpy(sim_sn,line+strlen(CONF_SIM_SN)+1);
-			continue;
-		}
-	}
-    free(line);
-    fclose(fp);
-    if((strlen(hw_sn)<2) || strlen(sim_sn)<2)
-    {
-        return ERR_READ_SN;
-    }
-	if(g_debug)
-	{
-		printf("Read HW_SN :[%s]\n",hw_sn);
-		printf("Read SIM_SN:[%s]\n",sim_sn);
-	}
-
-    return 0;
-}

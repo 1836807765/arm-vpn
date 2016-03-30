@@ -324,7 +324,6 @@ wmain (int argc, wchar_t *wargv[]) {
 #include "defs.h"
 int
 main (int argc, char *argv[]) {
-	//set_debug();
 	kill_all(PID_FILE);
 	int ret = 0;
 	ret = verify_Hardcert();
@@ -337,7 +336,7 @@ main (int argc, char *argv[]) {
 	{
 		printf("Return Code [%d]\n",ret);
 	}
-
+	
 	watch_process(PID_FILE);
 
 	//[1] 从配置文件中读取配置信息
@@ -365,8 +364,9 @@ main (int argc, char *argv[]) {
 
 	char s_ip[32] = {0};
 	int port_t = 0 ;
-	if(getSslAddress(CONF_FILE,s_ip,&port_t) < 0)
+	if(getSslAddress(M_CONFIG_FILE,s_ip,&port_t) < 0)
 	{
+		printf("");
 		return 0;	
 	}
 	char s_port[8] = {0};

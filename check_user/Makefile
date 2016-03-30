@@ -3,7 +3,7 @@ CC=arm-none-linux-gnueabi-gcc
 LDFLAGS= -L ./lib -lm -lcrypto -lrt -lcurl -lSecuTFMcApi
 
 
-SRC=src/*.c
+SRC=*.c
 INC= -I./include
 
 TARGET = sslvpn
