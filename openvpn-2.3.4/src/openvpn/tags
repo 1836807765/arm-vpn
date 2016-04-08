@@ -1828,6 +1828,7 @@ CONFIG_HEADER_BF_LOCL_H	include/openssl/opensslconf.h	171;"	d
 CONFIG_HEADER_BN_H	include/openssl/opensslconf.h	152;"	d
 CONFIG_HEADER_DES_LOCL_H	include/openssl/opensslconf.h	176;"	d
 CONFIG_HEADER_RC4_LOCL_H	include/openssl/opensslconf.h	164;"	d
+CONF_DEVICE_SN	include/defs.h	19;"	d
 CONF_FILE	include/defs.h	13;"	d
 CONF_F_CONF_DUMP_FP	include/openssl/conf.h	219;"	d
 CONF_F_CONF_LOAD	include/openssl/conf.h	220;"	d
@@ -1877,8 +1878,9 @@ CONF_R_UNABLE_TO_CREATE_NEW_SECTION	include/openssl/conf.h	256;"	d
 CONF_R_UNKNOWN_MODULE_NAME	include/openssl/conf.h	257;"	d
 CONF_R_VARIABLE_HAS_NO_VALUE	include/openssl/conf.h	258;"	d
 CONF_SERVER_IP	include/defs.h	15;"	d
-CONF_SERVER_PORT	include/defs.h	16;"	d
-CONF_SSL_PORT	include/defs.h	17;"	d
+CONF_SERVER_PORT	include/defs.h	17;"	d
+CONF_SIM_SN	include/defs.h	20;"	d
+CONF_SSL_PORT	include/defs.h	18;"	d
 CONF_VALUE	include/openssl/conf.h	/^	} CONF_VALUE;$/;"	t	typeref:struct:__anon27
 CONF_VALUE	include/openssl/conf.h	/^DECLARE_LHASH_OF(CONF_VALUE);$/;"	v
 CONFerr	include/openssl/err.h	215;"	d
@@ -3590,12 +3592,12 @@ EPOLL	syshead.h	652;"	d
 EPOLL	syshead.h	654;"	d
 ERRLEVEL_H	errlevel.h	26;"	d
 ERROR_H	error.h	26;"	d
-ERR_BAD_CONFIG	include/defs.h	22;"	d
+ERR_BAD_CONFIG	include/defs.h	25;"	d
 ERR_BUF_SIZE	error.h	33;"	d
 ERR_BUF_SIZE	error.h	35;"	d
-ERR_CODEC	include/defs.h	33;"	d
-ERR_CODEC_J	include/defs.h	34;"	d
-ERR_CONNECT_REFUSED	include/defs.h	24;"	d
+ERR_CODEC	include/defs.h	36;"	d
+ERR_CODEC_J	include/defs.h	37;"	d
+ERR_CONNECT_REFUSED	include/defs.h	27;"	d
 ERR_FATAL_ERROR	include/openssl/err.h	246;"	d
 ERR_FLAG_MARK	include/openssl/err.h	145;"	d
 ERR_FNS	include/openssl/ossl_typ.h	/^typedef struct st_ERR_FNS ERR_FNS;$/;"	t	typeref:struct:st_ERR_FNS
@@ -3639,16 +3641,17 @@ ERR_LIB_USER	include/openssl/err.h	202;"	d
 ERR_LIB_X509	include/openssl/err.h	171;"	d
 ERR_LIB_X509V3	include/openssl/err.h	185;"	d
 ERR_MAP_SZ	cryptoapi.c	136;"	d	file:
-ERR_NET_CONFIG	include/defs.h	38;"	d
-ERR_NO_CONFIG	include/defs.h	21;"	d
-ERR_NO_SERVER	include/defs.h	25;"	d
+ERR_NET_CONFIG	include/defs.h	43;"	d
+ERR_NO_CONFIG	include/defs.h	24;"	d
+ERR_NO_SERVER	include/defs.h	28;"	d
 ERR_NUM_ERRORS	include/openssl/err.h	147;"	d
-ERR_OK	include/defs.h	20;"	d
+ERR_OK	include/defs.h	23;"	d
 ERR_PACK	include/openssl/err.h	240;"	d
 ERR_PUT_error	include/openssl/err.h	135;"	d
 ERR_PUT_error	include/openssl/err.h	137;"	d
-ERR_READ_CERT	include/defs.h	27;"	d
-ERR_REQUEST	include/defs.h	36;"	d
+ERR_READ_CERT	include/defs.h	30;"	d
+ERR_READ_SN	include/defs.h	38;"	d
+ERR_REQUEST	include/defs.h	41;"	d
 ERR_R_ASN1_LENGTH_MISMATCH	include/openssl/err.h	298;"	d
 ERR_R_ASN1_LIB	include/openssl/err.h	274;"	d
 ERR_R_BAD_ASN1_OBJECT_HEADER	include/openssl/err.h	295;"	d
@@ -3692,13 +3695,14 @@ ERR_R_X509V3_LIB	include/openssl/err.h	281;"	d
 ERR_R_X509_LIB	include/openssl/err.h	273;"	d
 ERR_STATE	include/openssl/err.h	/^	} ERR_STATE;$/;"	t	typeref:struct:err_state_st
 ERR_STRING_DATA	include/openssl/err.h	/^	} ERR_STRING_DATA;$/;"	t	typeref:struct:ERR_string_data_st
-ERR_TF_CERT	include/defs.h	31;"	d
-ERR_TF_LOGIN	include/defs.h	29;"	d
-ERR_TF_OPEN	include/defs.h	28;"	d
-ERR_TF_SN	include/defs.h	30;"	d
+ERR_TF_CERT	include/defs.h	34;"	d
+ERR_TF_LOGIN	include/defs.h	32;"	d
+ERR_TF_OPEN	include/defs.h	31;"	d
+ERR_TF_SN	include/defs.h	33;"	d
 ERR_TXT_MALLOCED	include/openssl/err.h	142;"	d
 ERR_TXT_STRING	include/openssl/err.h	143;"	d
-ERR_VERIFY_FAIL	include/defs.h	37;"	d
+ERR_VERIFY_FAIL	include/defs.h	42;"	d
+ERR_VERIFY_SN	include/defs.h	39;"	d
 ERR_load_CRYPTO_strings	include/openssl/symhacks.h	439;"	d
 ERR_load_CRYPTO_strings	include/openssl/symhacks.h	440;"	d
 ERR_string_data_st	include/openssl/err.h	/^typedef struct ERR_string_data_st$/;"	s
@@ -5339,13 +5343,13 @@ MAX_CERT_DEPTH	ssl_verify.h	53;"	d
 MAX_CIPHER_KEY_LENGTH	crypto_backend.h	169;"	d
 MAX_CLIENT_NAT	clinat.h	30;"	d
 MAX_DATA	include/json_handler.h	5;"	d
-MAX_FILE_SIZE	verify_client.c	15;"	d	file:
+MAX_FILE_SIZE	verify_client.c	17;"	d	file:
 MAX_FRAGS	fragment.h	74;"	d
 MAX_FRAG_PKT_SIZE	fragment.h	155;"	d
 MAX_HMAC_KEY_LENGTH	crypto_backend.h	346;"	d
 MAX_PARMS	options.h	50;"	d
 MAX_PLUGINS	plugin.h	44;"	d
-MAX_REQUEST_SIZE	verify_client.c	16;"	d	file:
+MAX_REQUEST_SIZE	verify_client.c	18;"	d	file:
 MAX_ROUTES_DEFAULT	route.h	36;"	d
 MAX_RW_SIZE_LINK	mtu.h	179;"	d
 MAX_RW_SIZE_TUN	mtu.h	178;"	d
@@ -9179,8 +9183,8 @@ SELINUX_LIBS	Makefile	/^SELINUX_LIBS = $/;"	m
 SEQ_EXPIRED	packet_id.c	57;"	d	file:
 SEQ_REAP_INTERVAL	packet_id.h	125;"	d
 SEQ_UNSEEN	packet_id.c	56;"	d	file:
-SERVER_IP	verify_client.c	19;"	d	file:
-SERVER_PORT	verify_client.c	20;"	d	file:
+SERVER_IP	verify_client.c	21;"	d	file:
+SERVER_PORT	verify_client.c	22;"	d	file:
 SESSION_ID_H	session_id.h	36;"	d
 SET_MAKE	Makefile	/^SET_MAKE = $/;"	m
 SET_MAKE	include/curl/Makefile	/^SET_MAKE = $/;"	m
@@ -14706,6 +14710,7 @@ dn	include/openssl/pem.h	/^	X509_NAME *dn;$/;"	m	struct:pem_recip_st
 dns	tun.h	/^  in_addr_t dns[N_DHCP_ADDR];$/;"	m	struct:tuntap_options
 dns_addr_safe	socket.c	/^dns_addr_safe (const char *addr)$/;"	f	file:
 dns_len	tun.h	/^  int dns_len;$/;"	m	struct:tuntap_options
+doThreeYard	verify_client.c	/^int doThreeYard(char *ip,int port)$/;"	f
 do_alloc_route_list	init.c	/^do_alloc_route_list (struct context *c)$/;"	f	file:
 do_cipher	include/openssl/evp.h	/^	int (*do_cipher)(EVP_CIPHER_CTX *ctx, unsigned char *out,$/;"	m	struct:evp_cipher_st
 do_close_check_if_restart_permitted	init.c	/^do_close_check_if_restart_permitted (struct context *c)$/;"	f	file:
@@ -15428,7 +15433,9 @@ generate_session_id	include/openssl/ssl.h	/^	GEN_SESSION_CB generate_session_id;
 generate_session_id	include/openssl/ssl.h	/^	GEN_SESSION_CB generate_session_id;$/;"	m	struct:ssl_st
 genhash	pf.c	/^genhash (struct pf_cn_set *cns, const char *prefix, const int n_clients)$/;"	f	file:
 genkey	options.h	/^  bool genkey;$/;"	m	struct:options
+getCertSN	verify_client.c	/^int getCertSN(const char *der_data,int der_len)$/;"	f
 getRequest	verify_client.c	/^int getRequest(void *buffer,size_t size,size_t nmemb,void *ptr)$/;"	f
+getSnFromFile	verify_client.c	/^int getSnFromFile(char *filename,char *hw_sn,char *sim_sn)$/;"	f
 getSslAddress	verify_client.c	/^int getSslAddress(char *filename,char *ip,int *port)$/;"	f
 get_adapter	tun.c	/^get_adapter (const IP_ADAPTER_INFO *ai, DWORD index)$/;"	f
 get_adapter_index	tun.c	/^get_adapter_index (const char *guid)$/;"	f	file:

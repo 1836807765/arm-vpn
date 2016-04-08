@@ -129,10 +129,15 @@ int readCertTF(char *cert)
     ret = SDAPI_ReadCertificate(g_dev,NULL,&rlen,index);
     if(rlen <=0 )
     {
-        index = 0;
+		//andy
+		//printf("read[%d] len =%d ret=%08x\n",index,rlen,ret);
+
+        index = 2;
         ret = SDAPI_ReadCertificate(g_dev,NULL,&rlen,index);
         if(rlen <= 0)
         {
+			//andy
+			//printf("read[%d] len =%d ret=%08x\n",index,rlen,ret);
             SDAPI_CloseDevice(&g_dev);
             return ERR_TF_CERT;
         }
@@ -145,6 +150,8 @@ int readCertTF(char *cert)
     ret = SDAPI_ReadCertificate(g_dev,cert,&rlen,index);
     if(ret !=0 )
     {
+		//andy
+		//printf("readCert[%d] len =%d ret=%08x\n",index,rlen,ret);
         SDAPI_CloseDevice(&g_dev);
         return ERR_TF_CERT;
     }
